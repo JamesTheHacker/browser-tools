@@ -2,7 +2,7 @@
   "name": "havelock",
   "version": "1.0.0",
   "description": "Retrieve information about accounts, cookies, and history from common web browsers such as Google Chrome and Mozilla Firefox",
-  "main": "index.js",
+  "main": "browser.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Phoqe/havelock/issues"
   },
-  "homepage": "https://github.com/Phoqe/havelock#readme"
+  "homepage": "https://github.com/Phoqe/havelock#readme",
+  "dependencies": {
+    "sqlite3": "^3.1.8"
+  }
 }
