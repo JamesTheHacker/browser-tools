@@ -1,0 +1,19 @@
+{
+  "name": "havelock",
+  "version": "1.0.0",
+  "description": "Retrieve information about accounts, cookies, and history from common web browsers such as Google Chrome and Mozilla Firefox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phoqe/havelock.git"
+  },
+  "author": "Linus Långberg <langberglinus@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Phoqe/havelock/issues"
+  },
+  "homepage": "https://github.com/Phoqe/havelock#readme"
+}
