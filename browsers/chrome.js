@@ -4,12 +4,16 @@ const sqlite3 = require('sqlite3').verbose();
 const defaultLoginDataPath = path.join(process.env.LOCALAPPDATA, '\\Google\\Chrome\\User Data\\Default\\Login Data');
 const defaultCookiesPath = path.join(process.env.LOCALAPPDATA, '\\Google\\Chrome\\User Data\\Default\\Cookies');
 
-module.exports.getLoginData = function (dataPath) {
-  if (!dataPath) {
-    dataPath = defaultLoginDataPath;
+/**
+ * Retrieves login data from Google Chrome.
+ * @param {string} loginDataPath - Custom path for login data, if it's not specified a default path will be used.
+ */
+module.exports.getLoginData = function (loginDataPath) {
+  if (!loginDataPath) {
+    loginDataPath = defaultLoginDataPath;
   }
 
-  const database = new sqlite3.Database(dataPath, sqlite3.OPEN_READONLY, function (error) {
+  const database = new sqlite3.Database(loginDataPath, sqlite3.OPEN_READONLY, function (error) {
     if (error) {
       console.error(error);
 
@@ -40,12 +44,16 @@ module.exports.getLoginData = function (dataPath) {
   });
 };
 
-module.exports.getCookies = function (dataPath) {
-  if (!dataPath) {
-    dataPath = defaultCookiesPath;
+/**
+ * Returns saved cookies from Google Chrome.
+ * @param {string} cookiesPath - Custom path for cookies, if it's not specified a default path will be used.
+ */
+module.exports.getCookies = function (cookiesPath) {
+  if (!cookiesPath) {
+    cookiesPath = defaultCookiesPath;
   }
 
-  const database = new sqlite3.Database(dataPath, sqlite3.OPEN_READONLY, function (error) {
+  const database = new sqlite3.Database(cookiesPath, sqlite3.OPEN_READONLY, function (error) {
     if (error) {
       console.error(error);
 
