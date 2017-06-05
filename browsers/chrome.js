@@ -7,9 +7,11 @@ const defaultHistoryPath = path.join(process.env.LOCALAPPDATA, '\\Google\\Chrome
 
 /**
  * Returns saved login data from the Google Chrome web browser.
- * @param {string} loginDataPath - Custom path for login data, if it's not specified a default path will be used.
+ * @param {Boolean} limited - Return only important information.
+ * @param {String} loginDataPath - Custom path for login data, if it's not specified a default path will be used.
+ * @returns {Object[]} An array of saved logins
  */
-module.exports.getLoginData = function (loginDataPath) {
+module.exports.getLoginData = function (limited, loginDataPath) {
   if (!loginDataPath) {
     loginDataPath = defaultLoginDataPath;
   }
@@ -33,11 +35,15 @@ module.exports.getLoginData = function (loginDataPath) {
       for (let index = 0; index < rows.length; index++) {
         let row = rows[index];
 
-        loginData.push({
-          originUrl: row.origin_url,
-          username: row.username_value,
-          password: row.password_value
-        });
+        if (limited) {
+          loginData.push({
+            originUrl: row.origin_url,
+            username: row.username_value,
+            password: row.password_value
+          });
+        } else {
+          loginData.push(row);
+        }
       }
 
       console.log(loginData);
@@ -47,9 +53,11 @@ module.exports.getLoginData = function (loginDataPath) {
 
 /**
  * Returns saved cookies from the Google Chrome web browser.
- * @param {string} cookiesPath - Custom path for cookies, if it's not specified a default path will be used.
+ * @param {Boolean} limited - Return only important information.
+ * @param {String} cookiesPath - Custom path for cookies, if it's not specified a default path will be used.
+ * @returns {Object[]} An array of saved cookies
  */
-module.exports.getCookies = function (cookiesPath) {
+module.exports.getCookies = function (limited, cookiesPath) {
   if (!cookiesPath) {
     cookiesPath = defaultCookiesPath;
   }
@@ -73,19 +81,23 @@ module.exports.getCookies = function (cookiesPath) {
       for (let index = 0; index < rows.length; index++) {
         let row = rows[index];
 
-        cookies.push({
-          hostKey: row.host_key,
-          name: row.name,
-          value: row.encrypted_value,
-          path: row.path,
-          expiresUtc: row.expires_utc,
-          secure: Boolean(row.secure),
-          httpOnly: Boolean(row.httponly),
-          lastAccessUtc: row.last_access_utc,
-          expired: Boolean(row.has_expires),
-          persistent: Boolean(row.persistent),
-          priority: Boolean(row.priority)
-        });
+        if (limited) {
+          cookies.push({
+            hostKey: row.host_key,
+            name: row.name,
+            value: row.encrypted_value,
+            path: row.path,
+            expiresUtc: row.expires_utc,
+            secure: Boolean(row.secure),
+            httpOnly: Boolean(row.httponly),
+            lastAccessUtc: row.last_access_utc,
+            expired: Boolean(row.has_expires),
+            persistent: Boolean(row.persistent),
+            priority: Boolean(row.priority)
+          });
+        } else {
+          cookies.push(row);
+        }
       }
 
       console.log(cookies);
@@ -95,9 +107,11 @@ module.exports.getCookies = function (cookiesPath) {
 
 /**
  * Returns saved history from the Google Chrome web browser.
- * @param {string} historyPath - Custom path for history, if it's not specified a default path will be used.
+ * @param {Boolean} limited - Return only important information.
+ * @param {String} historyPath - Custom path for history, if it's not specified a default path will be used.
+ * @returns {Object[]} An array of history entries
  */
-module.exports.getHistory = function (historyPath) {
+module.exports.getHistory = function (limited, historyPath) {
   if (!historyPath) {
     historyPath = defaultHistoryPath;
   }
@@ -121,13 +135,17 @@ module.exports.getHistory = function (historyPath) {
       for (let index = 0; index < rows.length; index++) {
         let row = rows[index];
 
-        history.push({
-          id: row.id,
-          url: row.url,
-          title: row.title,
-          visits: row.visit_count,
-          lastVisit: row.last_visit_time
-        });
+        if (limited) {
+          history.push({
+            id: row.id,
+            url: row.url,
+            title: row.title,
+            visits: row.visit_count,
+            lastVisit: row.last_visit_time
+          });
+        } else {
+          history.push(row);
+        }
       }
 
       console.log(history);
