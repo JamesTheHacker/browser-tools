@@ -28,22 +28,6 @@ module.exports.getAccounts = function (dataPath, browser) {
       });
     }
 
-    console.log(accounts);
+    return accounts;
   });
-  
-  // database.each('SELECT * FROM logins', function (err, row) {
-  //   if (err) {
-  //     console.log(err);
-
-  //     return;
-  //   }
-
-  //   accounts.push({
-  //     origin: row.origin_url,
-  //     username: row.username_value,
-  //     password: row.password_value
-  //   });
-
-  //   console.log(accounts)
-  // });
 };
