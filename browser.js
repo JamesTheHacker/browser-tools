@@ -1,11 +1,11 @@
 var path = require('path');
 var sqlite3 = require('sqlite3').verbose();
 
-const loginDataPath = '\\Google\\Chrome\\User Data\\Default\\Login Data';
+const loginDataPath = path.join(process.env.LOCALAPPDATA, '\\Google\\Chrome\\User Data\\Default\\Login Data');
 
 module.exports.getAccounts = function (browser, dataPath) {
   if (!dataPath && browser === 'chrome') {
-    dataPath = path.join(process.env.LOCALAPPDATA, loginDataPath);    
+    dataPath = loginDataPath; 
   }
 
   var database = new sqlite3.Database(
