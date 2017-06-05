@@ -3,9 +3,10 @@ const sqlite3 = require('sqlite3').verbose();
 
 const defaultLoginDataPath = path.join(process.env.LOCALAPPDATA, '\\Google\\Chrome\\User Data\\Default\\Login Data');
 const defaultCookiesPath = path.join(process.env.LOCALAPPDATA, '\\Google\\Chrome\\User Data\\Default\\Cookies');
+const defaultHistoryPath = path.join(process.env.LOCALAPPDATA, '\\Google\\Chrome\\User Data\\Default\\History');
 
 /**
- * Retrieves login data from Google Chrome.
+ * Returns saved login data from the Google Chrome web browser.
  * @param {string} loginDataPath - Custom path for login data, if it's not specified a default path will be used.
  */
 module.exports.getLoginData = function (loginDataPath) {
@@ -45,7 +46,7 @@ module.exports.getLoginData = function (loginDataPath) {
 };
 
 /**
- * Returns saved cookies from Google Chrome.
+ * Returns saved cookies from the Google Chrome web browser.
  * @param {string} cookiesPath - Custom path for cookies, if it's not specified a default path will be used.
  */
 module.exports.getCookies = function (cookiesPath) {
@@ -88,6 +89,48 @@ module.exports.getCookies = function (cookiesPath) {
       }
 
       console.log(cookies);
+    });
+  });
+};
+
+/**
+ * Returns saved history from the Google Chrome web browser.
+ * @param {string} historyPath - Custom path for history, if it's not specified a default path will be used.
+ */
+module.exports.getHistory = function (historyPath) {
+  if (!historyPath) {
+    historyPath = defaultHistoryPath;
+  }
+
+  const database = new sqlite3.Database(historyPath, sqlite3.OPEN_READONLY, function (error) {
+    if (error) {
+      console.error(error);
+
+      return;
+    }
+
+    database.all('SELECT * FROM urls', function (error, rows) {
+      if (error) {
+        console.error(error);
+
+        return;
+      }
+
+      let history = [{}];
+
+      for (let index = 0; index < rows.length; index++) {
+        let row = rows[index];
+
+        history.push({
+          id: row.id,
+          url: row.url,
+          title: row.title,
+          visits: row.visit_count,
+          lastVisit: row.last_visit_time
+        });
+      }
+
+      console.log(history);
     });
   });
 };
