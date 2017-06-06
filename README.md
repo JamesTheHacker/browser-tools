@@ -1,2 +1,2 @@
 # havelock
-Retrieve information about accounts, cookies, and history from common web browsers such as Google Chrome and Mozilla Firefox
+Retrieve data such as accounts, cookies, and history from web browsers using Chromium
