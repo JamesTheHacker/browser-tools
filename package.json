@@ -1,5 +1,5 @@
 {
-  "name": "havelock",
+  "name": "browser-tools",
   "version": "1.0.0",
   "description": "Retrieve information about accounts, cookies, and history from common web browsers such as Google Chrome and Mozilla Firefox",
   "main": "browser.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Phoqe/havelock.git"
+    "url": "git+https://github.com/Phoqe/browser-tools.git"
   },
   "author": "Linus Långberg <langberglinus@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Phoqe/havelock/issues"
+    "url": "https://github.com/Phoqe/browser-tools/issues"
   },
-  "homepage": "https://github.com/Phoqe/havelock#readme",
+  "homepage": "https://github.com/Phoqe/browser-tools#readme",
   "dependencies": {
     "sqlite3": "^3.1.8"
   }
