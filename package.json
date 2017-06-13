@@ -1,6 +1,6 @@
 {
   "name": "browser-tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Retrieve information about accounts, cookies, and history from common web browsers such as Google Chrome and Mozilla Firefox",
   "main": "browser.js",
   "scripts": {
