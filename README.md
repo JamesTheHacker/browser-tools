@@ -11,7 +11,7 @@ $ cd browser-tools
 $ npm install
 ```
 
-If you don't wish to clone, you can [download the source code](https://github.com/electron/electron-api-demos/archive/master.zip).
+If you don't wish to clone, you can [download the source code](https://github.com/Phoqe/browser-tools/archive/master.zip).
 
 ## User Data Directory
 Every public function has a parameter where you can specify a custom path for the user data file you want to access, I've gathered some paths here from [the Chromium website](https://www.chromium.org/user-experience/user-data-directory).
