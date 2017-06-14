@@ -31,5 +31,20 @@ Every public function has a parameter where you can specify a custom path for th
 ### Chrome OS
 - /home/chronos/
 
+## Decrypting passwords
+Passwords and some other data are encrypted, to decrypt these you can use this C# function featured in the C# version of BrowserTools.
+```csharp
+private static string Decrypt(string data)
+{
+    if(data == null)
+    {
+        return null;
+    }
+
+    byte[] decryptedData = ProtectedData.Unprotect(System.Text.Encoding.Default.GetBytes(data), null, DataProtectionScope.CurrentUser);
+    return Encoding.UTF8.GetString(decryptedData);
+}
+```
+
 ## Contributing
 Feel free to send PRs and create issues regarding anything pretty much. An example on what you can do is adding more browsers to the private getBrowserPath function.
