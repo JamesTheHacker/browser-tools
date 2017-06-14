@@ -32,7 +32,7 @@ Every public function has a parameter where you can specify a custom path for th
 - /home/chronos/
 
 ## Decrypting passwords
-Passwords and some other data are encrypted, to decrypt these you can use this C# function featured in the C# version of BrowserTools.
+Passwords and some other data are encrypted, to decrypt these you can use this C# function featured in the C# version of BrowserTools. You have to add a reference to the `System.Security` namespace.
 ```csharp
 private static string Decrypt(string data)
 {
