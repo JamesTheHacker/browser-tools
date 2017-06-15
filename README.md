@@ -2,6 +2,27 @@
 
 A Node.js package that can retrieve data from the user data directory in Chromium. Examples of this type of data are: accounts, history, and cookies. It is supposed to work on Windows, macOS, and Linux operating systems but the default location for the user data directory varies.
 
+## Using
+You'll need [Node.js](https://nodejs.org) installed on your computer.
+
+### In an existing project
+```bash
+$ npm install browser tools
+```
+
+### In a new project
+```bash
+$ npm init
+$ npm install browser-tools
+```
+
+### Example code
+```js
+var bt = require('browser-tools');
+
+bt.getLoginData('chrome');
+```
+
 ## Building
 You'll need [Node.js](https://nodejs.org) installed on your computer in order to build this app.
 
