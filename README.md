@@ -6,11 +6,13 @@ A Node.js package that can retrieve data from the user data directory in Chromiu
 You'll need [Node.js](https://nodejs.org) installed on your computer.
 
 ### In an existing project
+If a ``package.json`` file is already present you can just run install brower-tools directly.
 ```bash
 $ npm install browser tools
 ```
 
 ### In a new project
+If a ``package.json`` file doesn't exist within your project you can create one and install browser-tools with these commands.
 ```bash
 $ npm init
 $ npm install browser-tools
