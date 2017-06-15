@@ -3,7 +3,7 @@
 A Node.js package that can retrieve data from the user data directory in Chromium. Examples of this type of data are: accounts, history, and cookies. It is supposed to work on Windows, macOS, and Linux operating systems but the default location for the user data directory varies.
 
 ## Using
-You'll need [Node.js](https://nodejs.org) installed on your computer.
+You will need npm installed on your computer, it usually comes bundled with [Node.js](https://nodejs.org).
 
 ### In an existing project
 If a ``package.json`` file is already present you can just run install brower-tools directly.
