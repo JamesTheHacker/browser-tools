@@ -8,10 +8,10 @@ const sqlite3 = require('sqlite3').verbose()
 
 /**
  * Returns saved login data from a specified Chromium web browser.
- * @param {string} browser The browser to retrieve login data from, keep in mind that the browser must use the Chromium storage facility.
- * @param {boolean} [limited] Whether or not to return only important information such as origin, username, and password.
- * @param {string} [loginDataFilePath] Path for login data, only necessary if your browser's login data does not reside in its default location.
- * @returns {object[]} An array of objects containing info about accounts.
+ * @param {String} browser The browser to retrieve login data from, keep in mind that the browser must use the Chromium storage facility.
+ * @param {Boolean} [limited] Whether or not to return only important information such as origin, username, and password.
+ * @param {String} [loginDataFilePath] Path for login data, only necessary if your browser's login data does not reside in its default location.
+ * @returns {Object[]} An array of objects containing info about accounts.
  */
 exports.getLoginData = function (browser, limited, loginDataFilePath) {
   if (!loginDataFilePath) loginDataFilePath = getBrowserFilePath(browser, 'Login Data')
@@ -55,10 +55,10 @@ exports.getLoginData = function (browser, limited, loginDataFilePath) {
 
 /**
  * Returns saved login data from a specified Chromium web browser using SQLite3's built-in each() function. Keep in mind that this is generally much slower compared to the original function.
- * @param {string} browser The browser to retrieve login data from, keep in mind that the browser must use the Chromium storage facility.
- * @param {boolean} [limited] Whether or not to return only important information such as origin, username, and password.
- * @param {string} [loginDataFilePath] Path for login data, only necessary if your browser's login data does not reside in its default location.
- * @returns {object[]} An array of objects containing info about accounts.
+ * @param {String} browser The browser to retrieve login data from, keep in mind that the browser must use the Chromium storage facility.
+ * @param {Boolean} [limited] Whether or not to return only important information such as origin, username, and password.
+ * @param {String} [loginDataFilePath] Path for login data, only necessary if your browser's login data does not reside in its default location.
+ * @returns {Object[]} An array of objects containing info about accounts.
  */
 exports.getLoginDataEach = function (browser, limited, loginDataFilePath) {
   if (!loginDataFilePath) loginDataFilePath = getBrowserFilePath(browser, 'Login Data')
@@ -98,10 +98,10 @@ exports.getLoginDataEach = function (browser, limited, loginDataFilePath) {
 
 /**
  * Returns saved cookies from a specified Chromium web browser.
- * @param {string} browser The browser to retrieve cookies from, keep in mind that the browser must use the Chromium storage facility.
- * @param {boolean} [limited] Whether or not to return only important information.
- * @param {string} [cookiesFilePath] Path for cookies file, only necessary if your browser's cookies file does not reside in its default location.
- * @returns {object[]} An array of objects containing cookie info.
+ * @param {String} browser The browser to retrieve cookies from, keep in mind that the browser must use the Chromium storage facility.
+ * @param {Boolean} [limited] Whether or not to return only important information.
+ * @param {String} [cookiesFilePath] Path for cookies file, only necessary if your browser's cookies file does not reside in its default location.
+ * @returns {Object[]} An array of objects containing cookie info.
  */
 exports.getCookies = function (browser, limited, cookiesFilePath) {
   if (!cookiesFilePath) cookiesFilePath = getBrowserFilePath(browser, 'Cookies')
@@ -153,10 +153,10 @@ exports.getCookies = function (browser, limited, cookiesFilePath) {
 
 /**
  * Returns saved cookies from a specified Chromium web browser using SQLite3's built-in each() function. Keep in mind that this is generally much slower compared to the original function.
- * @param {string} browser The browser to retrieve cookies from, keep in mind that the browser must use the Chromium storage facility.
- * @param {boolean} [limited] Whether or not to return only important information.
- * @param {string} [cookiesFilePath] Path for cookies file, only necessary if your browser's cookies file does not reside in its default location.
- * @returns {object[]} An array of objects containing cookie info.
+ * @param {String} browser The browser to retrieve cookies from, keep in mind that the browser must use the Chromium storage facility.
+ * @param {Boolean} [limited] Whether or not to return only important information.
+ * @param {String} [cookiesFilePath] Path for cookies file, only necessary if your browser's cookies file does not reside in its default location.
+ * @returns {Object[]} An array of objects containing cookie info.
  */
 exports.getCookiesEach = function (browser, limited, cookiesFilePath) {
   if (!cookiesFilePath) cookiesFilePath = getBrowserFilePath(browser, 'Cookies')
@@ -204,10 +204,10 @@ exports.getCookiesEach = function (browser, limited, cookiesFilePath) {
 
 /**
  * Returns the history of visited web pages from a specified Chromium web browser.
- * @param {string} browser The browser to retrieve the history from, keep in mind that the browser must use the Chromium storage facility.
- * @param {boolean} [limited] Whether or not to return only important information.
- * @param {string} [historyFilePath] Path for history file, only necessary if your browser's history file does not reside in its default location.
- * @returns {object[]} An array of objects containing info about the URL history.
+ * @param {String} browser The browser to retrieve the history from, keep in mind that the browser must use the Chromium storage facility.
+ * @param {Boolean} [limited] Whether or not to return only important information.
+ * @param {String} [historyFilePath] Path for history file, only necessary if your browser's history file does not reside in its default location.
+ * @returns {Object[]} An array of objects containing info about the URL history.
  */
 exports.getUrlHistory = function (browser, limited, historyFilePath) {
   if (!historyFilePath) historyFilePath = getBrowserFilePath(browser, 'History')
@@ -253,10 +253,10 @@ exports.getUrlHistory = function (browser, limited, historyFilePath) {
 
 /**
  * Returns the history of downloaded files from a specified Chromium web browser.
- * @param {string} browser The browser to retrieve the history from, keep in mind that the browser must use the Chromium storage facility.
- * @param {boolean} [limited] Whether or not to return only important information.
- * @param {string} [historyFilePath] Path for history file, only necessary if your browser's history file does not reside in its default location.
- * @returns {object[]} An array of objects containing info about the download history.
+ * @param {String} browser The browser to retrieve the history from, keep in mind that the browser must use the Chromium storage facility.
+ * @param {Boolean} [limited] Whether or not to return only important information.
+ * @param {String} [historyFilePath] Path for history file, only necessary if your browser's history file does not reside in its default location.
+ * @returns {Object[]} An array of objects containing info about the download history.
  */
 exports.getDownloadHistory = function (browser, limited, historyFilePath) {
   if (!historyFilePath) historyFilePath = getBrowserFilePath(browser, 'History')
@@ -304,9 +304,9 @@ exports.getDownloadHistory = function (browser, limited, historyFilePath) {
 
 /**
  * Returns a string containing the full path to a file associated with the specified browser.
- * @param {string} browser The browser you want to look for in the file system.
- * @param {string} fileName The file name that you want, the suffix in the full path, may look like: "Login Data" or "Cookies".
- * @returns {string} The full path to the respective browser file.
+ * @param {String} browser The browser you want to look for in the file system.
+ * @param {String} fileName The file name that you want, the suffix in the full path, may look like: "Login Data" or "Cookies".
+ * @returns {String} The full path to the respective browser file.
  * @private
  */
 function getBrowserFilePath(browser, fileName) {
